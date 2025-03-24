@@ -18,9 +18,8 @@ const printListNames=(names)=>{
     for (let i = 0; i < names.length; i++) {
         
         console.log(names[i].toUpperCase());
-        
-    }
 
+    }
 }
     
 printListNames(['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']);
@@ -32,11 +31,11 @@ printListNames(['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']);
 const priceAddition=(prices)=>{
     let totalPrice=0;
     for (const price of prices) {
-        console.log(price);
+        // console.log(price);
         
         totalPrice=totalPrice + price;
     }
-    console.log(totalPrice);
+    console.log("Precio Total: "+ totalPrice);
 }
 priceAddition([23,78,45])
 
