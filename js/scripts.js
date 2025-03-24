@@ -45,7 +45,7 @@ priceAddition([23,78,45])
 
 const aleatoryCodeGenerator=(emptyArray)=>{
     
-    for (let i= 0; i<3; i++) {
+    for (let i= 0; i<3; i++) { //considerar que cuenta 0,1,2....llega al 3 y para
         const aleatoryNumber=Math.floor(Math.random()*(9999-1000)+1000);
         emptyArray.push(aleatoryNumber); //no puedo usar + por que es un array, debo push o pop
     }
@@ -53,3 +53,88 @@ const aleatoryCodeGenerator=(emptyArray)=>{
 
 }
 aleatoryCodeGenerator([]);
+
+//4️⃣ Abby encontró una lista de suministros en un refugio: ['Agua', 'Munición', 'Botiquín', 'Czst']. Debe comprobar si todos los elementos contienen al menos una vocal.
+// Ejemplo salida:
+// Agua contiene vocales.
+// Munición contiene vocales.
+// Botiquín contiene vocales.
+// Czst no contiene vocales.
+
+const checkProvisionList =(supplies)=>{
+    const vowels="AEIOU"
+    for (const supplie of supplies) {
+        for(const letter of supplie){
+        if (vowels.includes(letter.toUpperCase())){
+            console.log(`${supplie} contiene vocales`);
+            break
+        }else{
+            console.log(`${supplie} no contiene vocales`);
+            
+        }
+        }
+    }
+    }
+
+checkProvisionList(['Agua', 'Munición', 'Botiquín', 'Czst']);
+
+//5️⃣ Bego está calculando precios con descuento. Tiene un array con precios, (por ejemplo [150, 300, 50]). Si el precio es mayor a 100, aplica un 20% de descuento, si no, un 10%. Usa un bucle para mostrar cada precio original, descuento aplicado y precio final.
+// Ejemplo salida:
+// Precio original: 150 - Descuento aplicado: 30 - Precio final: 120
+// Precio original: 300 - Descuento aplicado: 60 - Precio final: 240
+// Precio original: 50 - Descuento aplicado: 5 - Precio final: 45
+
+const applyDiscount=(prices)=>{
+
+    for (const price of prices) {
+        if (price>=100){
+            discount=price*.20;
+            finalPrice=price-discount;
+            console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
+        } else {
+            discount=price*.10;
+            finalPrice=price-discount;
+            console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
+        }   
+    }
+} //omgggggggggg funcionoooooo :))))) creo
+applyDiscount([150, 300, 50]);
+
+//7️⃣ Sabrina quiere verificar cuántos números aleatorios generados entre 1 y 100 son múltiplos de 3. Haz una función que haga esta comprobación con 10 números.
+// Ejemplo salida:
+// Números generados: [12, 35, 75, 9, 27, 4, 6, 88, 15, 3]
+// Múltiplos de 3 encontrados: 7
+
+const verifyAleatoryNumbers=(emptyArray)=>{
+
+    for (let i= 0; i<=9; i++) {
+        const aleatoryNumber=Math.floor(Math.random()*(100-1)+1);
+        emptyArray.push(aleatoryNumber);
+    }
+
+    let multiplyToTheThird=0;
+    for (const aleatoryNumber of emptyArray) {
+        if (aleatoryNumber%3===0){
+            multiplyToTheThird++;
+}
+    }
+
+    console.log(emptyArray);
+    console.log("Múltiplos de 3 encontrados= "+multiplyToTheThird);
+        
+    } //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
+verifyAleatoryNumbers([]);
+
+// 8️⃣ Macarena tiene un array con tres nombres y debe crear un array nuevo con las iniciales de cada nombre en mayúsculas usando un bucle.
+// Ejemplo entrada: ['Pedro', 'Ana', 'Luis']
+// Ejemplo salida: ['P', 'A', 'L']
+
+const getCapLetters= (names)=>{
+    const initials=[]; //como empty array pero nombrado
+    for (const name of names) {
+        initials.push(name.charAt(0));
+        //guardar estas iniciales en una variable
+    }
+    console.log(initials);
+}
+getCapLetters(['Pedro', 'Ana', 'Luis']);
