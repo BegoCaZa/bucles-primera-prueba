@@ -138,3 +138,34 @@ const getCapLetters= (names)=>{
     console.log(initials);
 }
 getCapLetters(['Pedro', 'Ana', 'Luis']);
+
+//9️⃣ Abby está revisando mensajes cifrados. Tiene un array con palabras (cantidad y palabras a tu elección) que deben invertirse y mostrarse en minúsculas. Usa un bucle para procesarlas todas. 
+// Ejemplo entrada: ['FUEGO', 'REFUGIO', 'SUMINISTROS']
+// Ejemplo salida: ['oguef', 'oiguref', 'sotsinimus']
+
+// const wordReverse=(words)=>{
+//     const separatedWords=words.split(" "); //divido la frase en array
+
+//     for (const word of separatedWords) { //por cada word de mi lista
+//         const reversedWords = separatedWords.reverse().join();
+//         console.log(reversedWords);
+//     }
+
+// } buuu no funcionó
+// wordReverse(["AYUDA NECESITAMOS SUMINISTROS"])
+
+//🔟 Camila quiere generar un código de acceso combinando letras aleatorias y números. Usa un bucle para crear un string aleatorio de 6 caracteres sacados de 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.
+// Ejemplo salida: 'A3P9K8'
+
+const accessCodeGenerator=()=>{
+    const characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(); //separo todas las letras del array
+    
+//necesito que tenga un indice random para sacar esa ubicacion de las letras
+    for (let i= 0; i<6; i++) { 
+        const randomIndex=Math.floor(Math.random()*(36-1)+1);//son 36 characters
+        const randomCode=characters.charAt(randomIndex);
+         }
+         console.log(randomCode);
+
+    } //buuu me atoré
+accessCodeGenerator();
