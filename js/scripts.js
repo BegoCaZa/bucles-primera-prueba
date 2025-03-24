@@ -139,33 +139,109 @@ const getCapLetters= (names)=>{
 }
 getCapLetters(['Pedro', 'Ana', 'Luis']);
 
-//9️⃣ Abby está revisando mensajes cifrados. Tiene un array con palabras (cantidad y palabras a tu elección) que deben invertirse y mostrarse en minúsculas. Usa un bucle para procesarlas todas. 
+//9️⃣ Abby está revisando mensajes cifrados. Tiene un array con palabras (cantidad y palabras a tu elección) que deben invertirse y mostrarse en minúsculas. Usa un bucle para procesarlas todas. Investiga sobre las funciones split(), reverse() y join()
 // Ejemplo entrada: ['FUEGO', 'REFUGIO', 'SUMINISTROS']
 // Ejemplo salida: ['oguef', 'oiguref', 'sotsinimus']
 
-// const wordReverse=(words)=>{
-//     const separatedWords=words.split(" "); //divido la frase en array
+const wordReverse=(words)=>{
 
-//     for (const word of separatedWords) { //por cada word de mi lista
-//         const reversedWords = separatedWords.reverse().join();
-//         console.log(reversedWords);
-//     }
+    for (const word of words) { //por cada word de mi lista
+        const separatedWord= word.split('');
+        console.log(separatedWord.reverse());
+    }
 
-// } buuu no funcionó
-// wordReverse(["AYUDA NECESITAMOS SUMINISTROS"])
+} //buuu no funcionó...me frustre y la salte
+wordReverse(['FUEGO', 'REFUGIO', 'SUMINISTROS'])
 
 //🔟 Camila quiere generar un código de acceso combinando letras aleatorias y números. Usa un bucle para crear un string aleatorio de 6 caracteres sacados de 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.
 // Ejemplo salida: 'A3P9K8'
 
-const accessCodeGenerator=()=>{
-    const characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(); //separo todas las letras del array
+// const accessCodeGenerator=()=>{
+//     const characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(); //separo todas las letras del array
     
-//necesito que tenga un indice random para sacar esa ubicacion de las letras
-    for (let i= 0; i<6; i++) { 
-        const randomIndex=Math.floor(Math.random()*(36-1)+1);//son 36 characters
-        const randomCode=characters.charAt(randomIndex);
-         }
-         console.log(randomCode);
+// //necesito que tenga un indice random para sacar esa ubicacion de las letras
+//     for (let i= 0; i<6; i++) { 
+//         const randomIndex=Math.floor(Math.random()*(36-1)+1);//son 36 characters
+//         const randomCode=characters.charAt(randomIndex);
+//          }
+//          console.log(randomCode);
 
-    } //buuu me atoré
-accessCodeGenerator();
+//     } //buuu me atoré
+// accessCodeGenerator();
+
+
+//1️⃣1️⃣ Macarena quiere crear un sistema que genere combinaciones de nombres y apellidos. Tiene dos arrays: ['Juan', 'Ana', 'Luis'] y ['Pérez', 'Martínez', 'García']. Debe generar todos los nombres posibles combinando uno de cada array.
+// Ejemplo salida:
+// Juan Pérez
+// Juan Martínez
+// Juan García
+// Ana Pérez
+// Ana Martínez
+// Ana García
+// Luis Pérez
+// Luis Martínez
+// Luis García
+
+const nameGenerator=()=>{
+    const names=['Juan', 'Ana', 'Luis'];
+    const surnames=['Pérez', 'Martínez', 'García'];
+
+   for (const name of names) {
+     for (const surname of surnames) {
+        console.log(name +' '+surname);
+     }     
+     }
+   }
+   nameGenerator();
+
+   //1️⃣2️⃣ Abby quiere comprobar si al menos uno de los números generados aleatoriamente entre 1 y 100 es divisible por 5. Genera 5 números y muestra si se cumple la condición.
+// Ejemplo salida:
+// Números generados: [23, 45, 67, 12, 90]
+// Números divisibles por 5 encontrados: [45, 90]
+
+const isThisNumberDivBy5=(emptyArray)=>{
+
+    for (let i= 0; i<5; i++) {
+        const aleatoryNumber=Math.floor(Math.random()*(100-1)+1);
+        emptyArray.push(aleatoryNumber);
+    }
+
+    let dividableByFive=0;
+    for (const aleatoryNumber of emptyArray) {
+        if (aleatoryNumber%5===0){
+            dividableByFive++;
+}
+    }
+
+    console.log(emptyArray);
+    console.log("Número dividibles por 5= "+dividableByFive);
+        
+    } //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
+    isThisNumberDivBy5([]);
+
+    //1️⃣3️⃣ Camila tiene un array con nombres y quiere mostrar sólo aquellos que tienen más de 4 letras.
+// Ejemplo entrada: ['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']
+// Ejemplo salida: ['Pedro', 'Elena', 'Sofía']
+
+const doesThisNameHas4Letters =(names)=>{
+
+    for (const name of names) {
+        if (name.length>4){
+            console.log(name);
+        }else{
+            break //whyyyyyy no funciona, quiero que se salte ese nombre
+        }   
+    }
+}
+doesThisNameHas4Letters(['Pedro', 'Joaquin', 'paco', 'Elena', 'Sofía']);
+
+//1️⃣4️⃣ Bego tiene un array con tres palabras y quiere mostrar todas las combinaciones posibles de esas palabras usando dos palabras a la vez y cuyas combinaciones no repitan la palabra.
+// Ejemplo entrada: ['Sol', 'Luna', 'Estrella']
+// Ejemplo salida:
+// Sol Luna
+// Sol Estrella
+// Luna Sol
+// Luna Estrella
+// Estrella Sol
+// Estrella Luna
+
