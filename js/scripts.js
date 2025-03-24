@@ -109,7 +109,7 @@ const verifyAleatoryNumbers=(emptyArray)=>{
     let multiplyToTheThird=0;
 
     for (let i= 0; i<=9; i++) {
-        const aleatoryNumber=Math.floor(Math.random()*(100-1)+1);
+        const aleatoryNumber=Math.floor(Math.random()*100);
         emptyArray.push(aleatoryNumber);
         if (aleatoryNumber%3===0){
             multiplyToTheThird++;
@@ -117,15 +117,9 @@ const verifyAleatoryNumbers=(emptyArray)=>{
     }
 
     console.log(emptyArray);
-    console.log("Múltiplos de 3 encontrados= "+multiplyToTheThird);
-       
-//     for (const aleatoryNumber of emptyArray) {
-//         if (aleatoryNumber%3===0){
-//             multiplyToTheThird++;
-// }
+    console.log("Múltiplos de 3 encontrados= "+multiplyToTheThird);   
     }
-
-     
+  
      //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
 verifyAleatoryNumbers([]);
 
@@ -204,24 +198,22 @@ const nameGenerator=()=>{
 // Números divisibles por 5 encontrados: [45, 90]
 
 const isThisNumberDivBy5=(emptyArray)=>{
-
-    for (let i= 0; i<5; i++) {
-        const aleatoryNumber=Math.floor(Math.random()*(100-1)+1);
-        emptyArray.push(aleatoryNumber);
-    }
-
     let dividableByFive=0;
-    for (const aleatoryNumber of emptyArray) {
+    for (let i= 0; i<5; i++) {
+        const aleatoryNumber=Math.floor(Math.random()*100);
+        emptyArray.push(aleatoryNumber);
         if (aleatoryNumber%5===0){
             dividableByFive++;
-}
     }
 
+}
+    
     console.log(emptyArray);
     console.log("Número dividibles por 5= "+dividableByFive);
         
-    } //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
+    } 
     isThisNumberDivBy5([]);
+
 
     //1️⃣3️⃣ Camila tiene un array con nombres y quiere mostrar sólo aquellos que tienen más de 4 letras.
 // Ejemplo entrada: ['Pedro', 'Ana', 'Luis', 'Elena', 'Sofía']
@@ -246,4 +238,32 @@ doesThisNameHas4Letters(['Pedro', 'Joaquin', 'paco', 'Elna', 'Sofía']);
 // Luna Estrella
 // Estrella Sol
 // Estrella Luna
+
+const wordCombination=()=>{
+    const wordList=['Sol', 'Luna', 'Estrella']; 
+    for (let i = 0;  i<wordList.length; i++) {
+        console.log(wordList.shift());
+        
+    }
+} //me trabe
+wordCombination([]);
+
+//1️⃣5️⃣ Sabrina quiere generar un nombre de usuario aleatorio combinando una consonante, una vocal y un número aleatorio entre 1 y 99. Debe hacerlo 5 veces y mostrar los resultados.
+// Ejemplo salida: ['MA87', 'RO56', 'LE23', 'FI99', 'PU12']
+
+// const userNameGenerator=(emptyArray)=>{
+//     const vowels="AEIOU";
+//     const consonants="BCDFGHJKLMNÑPQRSTVXZWY";
+//     const numbers=Math.floor(Math.random()*99);
+
+//     for (let i = 0; i < 5; index++) {
+//         for (let j= 0; j< vowels.length; j++) {
+//             const element = array;
+            
+//         }
+        
+        
+//     }
+// }
+// userNameGenerator();
 
