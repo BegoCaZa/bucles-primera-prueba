@@ -87,12 +87,12 @@ const applyDiscount=(prices)=>{
 
     for (const price of prices) {
         if (price>=100){
-            discount=price*.20;
-            finalPrice=price-discount;
+            const discount=price*.20;
+            const finalPrice=price-discount;
             console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
         } else {
-            discount=price*.10;
-            finalPrice=price-discount;
+            const discount=price*.10;
+            const finalPrice=price-discount;
             console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
         }   
     }
@@ -106,13 +106,11 @@ applyDiscount([150, 300, 50]);
 
 const verifyAleatoryNumbers=(emptyArray)=>{
 
+    let multiplyToTheThird=0;
+
     for (let i= 0; i<=9; i++) {
         const aleatoryNumber=Math.floor(Math.random()*(100-1)+1);
         emptyArray.push(aleatoryNumber);
-    }
-
-    let multiplyToTheThird=0;
-    for (const aleatoryNumber of emptyArray) {
         if (aleatoryNumber%3===0){
             multiplyToTheThird++;
 }
@@ -120,8 +118,15 @@ const verifyAleatoryNumbers=(emptyArray)=>{
 
     console.log(emptyArray);
     console.log("Múltiplos de 3 encontrados= "+multiplyToTheThird);
-        
-    } //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
+       
+//     for (const aleatoryNumber of emptyArray) {
+//         if (aleatoryNumber%3===0){
+//             multiplyToTheThird++;
+// }
+    }
+
+     
+     //omgggggggggg funcionoooooo :))))) creo, solo no se si podian ser anidados
 verifyAleatoryNumbers([]);
 
 // 8️⃣ Macarena tiene un array con tres nombres y debe crear un array nuevo con las iniciales de cada nombre en mayúsculas usando un bucle.
@@ -227,12 +232,10 @@ const doesThisNameHas4Letters =(names)=>{
     for (const name of names) {
         if (name.length>4){
             console.log(name);
-        }else{
-            break //whyyyyyy no funciona, quiero que se salte ese nombre
-        }   
+        }  
     }
 }
-doesThisNameHas4Letters(['Pedro', 'Joaquin', 'paco', 'Elena', 'Sofía']);
+doesThisNameHas4Letters(['Pedro', 'Joaquin', 'paco', 'Elna', 'Sofía']);
 
 //1️⃣4️⃣ Bego tiene un array con tres palabras y quiere mostrar todas las combinaciones posibles de esas palabras usando dos palabras a la vez y cuyas combinaciones no repitan la palabra.
 // Ejemplo entrada: ['Sol', 'Luna', 'Estrella']
