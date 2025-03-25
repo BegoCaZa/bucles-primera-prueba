@@ -177,7 +177,7 @@ const accessCodeGenerator=()=>{
     
 //necesito que tenga un indice random para sacar esa ubicacion de las letras
     for (let i= 0; i<6; i++) { 
-        const randomIndex=Math.floor(Math.random()*(characters.length-1)+1);//posicion aleatoria
+        const randomIndex=Math.floor(Math.random()*characters.length);//posicion aleatoria
         const randomCharacter=characters.charAt(randomIndex); //la letra que corresponde a esa posicion
         code=code+ randomCharacter; // en cada vuelta va a ir metiendo un character en el string
          }
