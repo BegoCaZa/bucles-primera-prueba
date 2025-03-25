@@ -62,18 +62,33 @@ aleatoryCodeGenerator([]);
 
 const checkProvisionList =(supplies)=>{
     const vowels="AEIOU"
-    for (const supplie of supplies) {
-        for(const letter of supplie){
-        if (vowels.includes(letter.toUpperCase())){
-            console.log(`${supplie} contiene vocales`);
-            break
-        }else{
-            console.log(`${supplie} no contiene vocales`);
+    for (const supplie of supplies) { //separo cada palabra
+        let hasVowel=false; //mientras recorro las letras, me interesa que se reinicie la variable
+        for (const letter of supplie) {//con esto separo cada letra del supplie
+            if(vowels.includes(letter.toUpperCase())){
+                hasVowel=true; //no vale la pena usar un console.log aqui por que imprimiria cada letra, por eso mejor le pido que guarde la info y luego yo la verifico
+                break; // ya eque encontro la vocal, la salta
+                }
+            }
+            if (hasVowel){
+                console.log(`${supplie} tiene vocales`);
+            } else {
+                console.log(`${supplie} no tiene vocales`);
+            }
+        }
+    }
+    // for (const supplie of supplies) {
+    //     for(const letter of supplie){
+    //     if (vowels.includes(letter.toUpperCase())){
+    //         console.log(`${supplie} contiene vocales`);
+    //         break
+    //     }else{
+    //         console.log(`${supplie} no contiene vocales`);
             
-        }
-        }
-    }
-    }
+    //     }
+    //     }
+    // }
+    
 
 checkProvisionList(['Agua', 'Munición', 'Botiquín', 'Czst']);
 
@@ -96,7 +111,7 @@ const applyDiscount=(prices)=>{
             console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
         }   
     }
-} //omgggggggggg funcionoooooo :))))) creo
+} //omgggggggggg funcionoooooo :))))) version larga
 applyDiscount([150, 300, 50]);
 
 //7️⃣ Sabrina quiere verificar cuántos números aleatorios generados entre 1 y 100 son múltiplos de 3. Haz una función que haga esta comprobación con 10 números.
@@ -130,42 +145,46 @@ verifyAleatoryNumbers([]);
 const getCapLetters= (names)=>{
     const initials=[]; //como empty array pero nombrado
     for (const name of names) {
-        initials.push(name.charAt(0));
+        const initial=name.charAt(0).toUpperCase(); //saca la letra, la hace mayuscula
+        initials.push(initial);
         //guardar estas iniciales en una variable
     }
     console.log(initials);
 }
-getCapLetters(['Pedro', 'Ana', 'Luis']);
+getCapLetters(['Pedro', 'ana', 'Luis']);
 
 //9️⃣ Abby está revisando mensajes cifrados. Tiene un array con palabras (cantidad y palabras a tu elección) que deben invertirse y mostrarse en minúsculas. Usa un bucle para procesarlas todas. Investiga sobre las funciones split(), reverse() y join()
 // Ejemplo entrada: ['FUEGO', 'REFUGIO', 'SUMINISTROS']
 // Ejemplo salida: ['oguef', 'oiguref', 'sotsinimus']
 
 const wordReverse=(words)=>{
-
+ const reversedWords=[]; //necesito un array para guardar las palabras
     for (const word of words) { //por cada word de mi lista
-        const separatedWord= word.split('');
-        console.log(separatedWord.reverse());
+        const reversedWord= word.split("").reverse().join("").toLowerCase(); //si pongo solo reverse, cambiaria el orden del array. aqui `rimero separo las letras de la palabra, y las volteo
+        reversedWords.push(reversedWord);
     }
+    console.log(reversedWords);
 
-} //buuu no funcionó...me frustre y la salte
-wordReverse(['FUEGO', 'REFUGIO', 'SUMINISTROS'])
+} 
+wordReverse( ['FUEGO', 'REFUGIO', 'SUMINISTROS']);
 
 //🔟 Camila quiere generar un código de acceso combinando letras aleatorias y números. Usa un bucle para crear un string aleatorio de 6 caracteres sacados de 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'.
 // Ejemplo salida: 'A3P9K8'
 
-// const accessCodeGenerator=()=>{
-//     const characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split(); //separo todas las letras del array
+const accessCodeGenerator=()=>{
+    const characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"; //separo todas las letras del array
+    let code=""; //me pide regresar un string y aqui lo guardare
     
-// //necesito que tenga un indice random para sacar esa ubicacion de las letras
-//     for (let i= 0; i<6; i++) { 
-//         const randomIndex=Math.floor(Math.random()*(36-1)+1);//son 36 characters
-//         const randomCode=characters.charAt(randomIndex);
-//          }
-//          console.log(randomCode);
+//necesito que tenga un indice random para sacar esa ubicacion de las letras
+    for (let i= 0; i<6; i++) { 
+        const randomIndex=Math.floor(Math.random()*(characters.length-1)+1);//posicion aleatoria
+        const randomCharacter=characters.charAt(randomIndex); //la letra que corresponde a esa posicion
+        code=code+ randomCharacter; // en cada vuelta va a ir metiendo un character en el string
+         }
+         console.log(code);
 
-//     } //buuu me atoré
-// accessCodeGenerator();
+    } 
+accessCodeGenerator();
 
 
 //1️⃣1️⃣ Macarena quiere crear un sistema que genere combinaciones de nombres y apellidos. Tiene dos arrays: ['Juan', 'Ana', 'Luis'] y ['Pérez', 'Martínez', 'García']. Debe generar todos los nombres posibles combinando uno de cada array.
