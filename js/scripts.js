@@ -260,29 +260,82 @@ doesThisNameHas4Letters(['Pedro', 'Joaquin', 'paco', 'Elna', 'Sofía']);
 
 const wordCombination=()=>{
     const wordList=['Sol', 'Luna', 'Estrella']; 
-    for (let i = 0;  i<wordList.length; i++) {
-        console.log(wordList.shift());
-        
+    for (const word of wordList) {
+        for (const word2 of wordList) { //da dos vueltas y solo imprime las que no repitan
+            if(word2!== word){
+                console.log(word+" "+word2);
+            }
+        }
+        } 
     }
-} //me trabe
+
 wordCombination([]);
 
 //1️⃣5️⃣ Sabrina quiere generar un nombre de usuario aleatorio combinando una consonante, una vocal y un número aleatorio entre 1 y 99. Debe hacerlo 5 veces y mostrar los resultados.
 // Ejemplo salida: ['MA87', 'RO56', 'LE23', 'FI99', 'PU12']
 
-// const userNameGenerator=(emptyArray)=>{
-//     const vowels="AEIOU";
-//     const consonants="BCDFGHJKLMNÑPQRSTVXZWY";
-//     const numbers=Math.floor(Math.random()*99);
+const generateCode=()=>{
+    const vowels="AEIOU";
+    const consonants="BCDFGHJKLMNÑPQRSTVXZWY";
 
-//     for (let i = 0; i < 5; index++) {
-//         for (let j= 0; j< vowels.length; j++) {
-//             const element = array;
-            
-//         }
-        
-        
-//     }
-// }
-// userNameGenerator();
+    const randomVowel= vowels.charAt(Math.floor(Math.random()*vowels.length)); //da vowel random
+    const randomConsonant= consonants.charAt(Math.floor(Math.random()*consonants.length)); //da consonante random
+    const randomNumber=Math.floor(Math.random()*99);
+
+    return randomVowel+ randomConsonant+randomNumber;
+
+}
+const userNameGenerator=()=>{
+    const codeList=[]; //necesito un array para meter los 5 codigos
+
+    for (let i = 0; i < 5; i++) {
+        const code=generateCode();
+        codeList.push(code); //ir metiendo cada codigo en el array
+    }
+    console.log(codeList);
+}
+userNameGenerator();
+
+//1️⃣6️⃣ Abby tiene problemas con las tablas de multiplicar, quiere hacer 2 funciones que reciban un número y le impriman la tabla de multiplicar de ese número desde hasta el 10 una en orden descendente y otra en orden ascendente.
+
+// Ejemplo entrada: 4
+
+// Ejemplo salida función descendente:
+// 4 x 10 = 40
+// 4 x 9 = 36
+// 4 x 8 = 32
+// 4 x 7 = 28
+// 4 x 6 = 24
+// 4 x 5 = 20
+// 4 x 4 = 16
+// 4 x 3 = 12
+// 4 x 2 = 8
+// 4 x 1 = 4
+// 4 x 0 = 0
+
+// Ejemplo salida función ascendente:
+// 4 x 0 = 0
+// 4 x 1 = 4
+// 4 x 2 = 8
+// 4 x 3 = 12
+// 4 x 4 = 16
+// 4 x 5 = 20
+// 4 x 6 = 24
+// 4 x 7 = 28
+// 4 x 8 = 32
+// 4 x 9 = 36
+// 4 x 10 = 40
+
+const multiplicationTableUpward=(number)=>{
+    console.log("Función ascendiente"); //no se usa for of por que no hay array que recorrer
+    for (let i = 0; i <= 10; i++) { //quiero que llegue a multiplicar hasta el 10
+        console.log(`${number} x ${i} = ${number*i}`);
+    }
+    console.log("Función descendiente");
+    for (let i= 10; i >= 0; i--) {
+        console.log(`${number} x ${i} = ${number*i}`);
+    }
+    };
+
+    multiplicationTableUpward(4);
 
