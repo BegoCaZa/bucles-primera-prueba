@@ -99,16 +99,15 @@ checkProvisionList(['Agua', 'Munición', 'Botiquín', 'Czst']);
 // Precio original: 50 - Descuento aplicado: 5 - Precio final: 45
 
 const applyDiscount=(prices)=>{
-
     for (const price of prices) {
+        const discount10=price*.10;
+        const discount20=price*.20;
         if (price>=100){
-            const discount=price*.20;
-            const finalPrice=price-discount;
-            console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
+            const finalPrice=price-discount20;
+            console.log(`Precio original ${price}. | Descuento aplicado ${discount20}. | Precio final: ${finalPrice}.`);
         } else {
-            const discount=price*.10;
-            const finalPrice=price-discount;
-            console.log(`Precio original ${price}. | Descuento aplicado ${discount}. | Precio final: ${finalPrice}.`);
+            const finalPrice=price-discount10;
+            console.log(`Precio original ${price}. | Descuento aplicado ${discount10}. | Precio final: ${finalPrice}.`);
         }   
     }
 } //omgggggggggg funcionoooooo :))))) version larga
